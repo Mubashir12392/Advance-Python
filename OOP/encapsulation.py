@@ -11,7 +11,8 @@
 #         self.__name = name       # Private instance attribute    
 #         self.__age = age         # Private instance attribute
 
-#  # private instance attribute values can only be show by methods whether it is magic or user method
+#   private instance attribute values can only be get by methods or property decorators. 
+#   method could be magic or user method
 #     def __str__(self) -> str:
 #         return f'Name: {self.__name}, Age: {self.__age}'
 
