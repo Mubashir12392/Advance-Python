@@ -4,54 +4,97 @@
 # the creation and behavior of classes themselves. Metaclasses are essentially classes of classes.
 # They define how classes behave, their instantiation, and their relationships with other classes.
 
-class Meta(type):
-    def __new__(cls,name,bases,dict):
+# class Meta(type):
+#     def __new__(cls,name,bases,dict):
 
-        print(f'New Class created: {name}')
+#         print(f'New Class created: {name}')
 
-        # customize class creation here
-        # you can modify attributes, methods or the class itself
-        # The __new__ method is called as the new class is created
+#         # customize class creation here
+#         # you can modify attributes, methods or the class itself
+#         # The __new__ method is called as the new class is created
 
-        return super().__new__(cls,name,bases,dict)
+#         return super().__new__(cls,name,bases,dict)
     
-class MyClass(metaclass=Meta):
-    def __init__(self) -> None:
-        pass
+# class MyClass(metaclass=Meta):
+#     def __init__(self) -> None:
+#         pass
 
 
 
-# Example
-# This will convert every new class instance attribute value to 'b' if it starts with 'a'
-    
-class Meta(type):
-    def __new__(cls,name,bases,dict):
+# __________________________________Modify attributes in metaclass________________________
 
 
-        meta_instance = super().__new__(cls,name,bases,dict)
+# class Meta(type):
+#     def __new__(cls,name,bases,dct):
 
-        original_setattr = meta_instance.__setattr__
+#         # add attribute in each creating class
+#         dct['newattribute'] = 55
 
-        def modifiedattr(self,name,value):
-            if isinstance(value, str) and value.startswith('a'):
-                value = 'b' + value[1:]
-            original_setattr(self,name,value)
+#         # modify existing  class attribute
+#         if 'name' in dct:
+#             dct['name'] = 'Mubashir'
         
-        meta_instance.__setattr__ = modifiedattr
+#         # modify existing class instance attribute
 
-        return meta_instance
+#         meta_instance = super().__new__(cls,name,bases,dct)
+#         original_isntance = meta_instance.__setattr__
+#         def modifiedattr(self,name,value):
+#             if name == 'name' and isinstance(value,str):
+#                 value = 'Mubashir'
+#             original_isntance(self,name,value)
 
-class NewClass(metaclass=Meta):
-    def __init__(self,name,age) -> None:
-        self.name = name
-        self.age = age
-    def __str__(self) -> str:
-        return f'{self.name}, {self.age}'
+#         meta_instance.__setattr__ = modifiedattr
+#         return meta_instance
+    
+#     # add new instance attribute to class
+#     def __call__(self, *args: Any, **kwds: Any) -> Any:
+#         obj = super().__call__(*args, **kwds)
+#         setattr(obj,'school','Royal')
+#         return obj
+    
+
+# class Myclass(metaclass=Meta):
+#     car = 'toyota'
+#     name = 'John'
+
+#     def __init__(self,name) -> None:
+#         self.name = name
+
+# id1 = Myclass('Ali')
+# print(id1.school)
+
+# class NewClass(Myclass):
+#     pass
+
+# a = NewClass('Haider')
+# print(a.school)
 
 
-id1 = NewClass('ali',23)
-print(id1)
+# _______________________________________add/modify methods in metaclasses___________________
 
+# class Meta(type):
+#     def __new__(cls,name,bases,dct):
 
+#         # add new method in class
+#         dct['new_method'] = cls.new_method
 
+#         # modify existing method
+#         dct['list_checker'] = cls.modified_method
+#         return super().__new__(cls,name,bases,dct)
+    
+#     def new_method(cls):
+#         print('this is new method')
+
+#     def modified_method(cls):
+#         print('This is modified method')
+
+# class MyClass(metaclass=Meta):
+#     def __init__(self,name) -> None:
+#         self.name = name
+    
+#     def list_checker(self):
+#         print('This is the original method')
+
+# id1 = MyClass('Mubashir')
+# id1.new_method()
 
