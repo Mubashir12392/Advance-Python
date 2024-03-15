@@ -194,6 +194,41 @@
 # id1 = Student([2,3,4,656,77,32,54])
 # print(3 in id1)
 
+# ____________________________________setattr()___________________________________
+# You can set condition for instance attribute. it is used for the first input and also 
+# used for when user wants to change input, it behaves like a descriptor
+
+
+
+# class Student:
+#     def __init__(self,name,age,gender) -> None:
+#         self.name = name
+#         self.age = age
+#         self.gender = gender
+
+#     def __setattr__(self, name: str, value: Any) -> None:
+#         if name =='name' and not isinstance(value, str):
+#             raise TypeError('Name of the student must be str')
+#         if name == 'age' and not isinstance(value, int):
+#             raise TypeError('Age of the student must be int')
+#         if name == 'gender' and not isinstance(value, str):
+#             raise TypeError('Gender must be str')
+#         if name == 'age' and value < 18:
+#             raise ValueError('Student must be Adult')
+        
+#         super().__setattr__(name,value)
+
+        
+#     def __str__(self) -> str:
+#         return f'Name: {self.name}, Age: {self.age}, Gender:{self.gender}'
+        
+# id1 = Student('Mubashir',20,'male')
+# id1.age = 20
+# print(id1)
+
+
+#_____________________________________call()______________________________________
+
 # ________________________________eq()_________________________________________
 
 # The __eq__() magic method in Python is used to define the behavior of the equality 
