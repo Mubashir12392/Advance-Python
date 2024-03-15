@@ -30,10 +30,6 @@
 # we cannot implement these conditions in the owner class, 
 
 
-
-from typing import Any
-
-
 class Descriptor:
     def __init__(self) -> None:
         self.__fuel_cap = 0
@@ -100,7 +96,6 @@ print(id1)
 # It provides a way to encapsulate attribute access, enabling you to execute custom logic when getting,
 # setting, or deleting attributes.
 
-# # Getter method
 # class Student:
 #     def __init__(self,name) -> None:
 #         self.__name = name
