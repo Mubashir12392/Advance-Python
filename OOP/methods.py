@@ -10,17 +10,17 @@
 # This parameter allows the method to access and modify class-level variables and call other class methods.
 # Class methods are commonly used for factory methods or methods that need to operate on class-level data.
 
-# class Student:
-#     students_school = 'Royal'
+class Student:
+    students_school = 'Royal'
 
-#     @classmethod
-#     def school(cls):
-#         if cls.students_school == 'Royal':
-#             print(f'Every student,s school name is: {cls.students_school}')
+    @classmethod
+    def school(cls):
+        if cls.students_school == 'Royal':
+            print(f'Every student,s school name is: {cls.students_school}')
 
-# id1 = Student()
-# Student.school()
-# # id1.school()
+id1 = Student()
+Student.school()
+# id1.school()
 
 
 # Static Method:
