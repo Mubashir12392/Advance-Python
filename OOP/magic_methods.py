@@ -229,6 +229,32 @@
 
 #_____________________________________call()______________________________________
 
+# In Python, the __call__ magic method is a special method that allows instances of a 
+# class to be called as if they were functions. When the __call__ method is defined 
+# within a class, instances of that class become callable objects.
+
+
+# class Temperature:
+#     def __call__(self, temperature, to_unit) :
+#         if to_unit.lower() == 'c':
+#             return self.to_celcius(temperature)
+#         if to_unit.lower() == 'f':
+#             return self.to_fahrenheit(temperature)
+#         else:
+#             raise ValueError('Invalid unit') 
+
+        
+#     def to_celcius(self,fahrenheit):
+#         return (fahrenheit - 32) * 9/5
+
+#     def to_fahrenheit(self,celcius):
+#         return celcius * 9/5 + 32    
+    
+# id1 = Temperature()
+# print(id1(54,'c'))
+
+
+
 # ________________________________eq()_________________________________________
 
 # The __eq__() magic method in Python is used to define the behavior of the equality 
