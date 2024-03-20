@@ -57,10 +57,6 @@ class Car:
             raise TypeError('Make of the car must be str')
         if not isinstance(model,str):
             raise TypeError('Model of the car must be str')
-        if not isinstance(fuel_cap, int):
-            raise TypeError('Fuel capacity of the car must be int')
-        if fuel_cap <= 0:
-            raise ValueError('Fuel Capacity can never be zero')
         
         self.make = make
         self.model = model
@@ -85,6 +81,7 @@ print(id1)
 # You might use a class descriptor if you're implementing a database ORM where you need to lazily 
 # load data, perform validation, or trigger cascading updates upon attribute access, setting, or deletion.
 # It is used when attributes are not private, if private use property decorator
+# Descriptor class has effect on both, first instance attribute input and when user change its value
 
 
 
@@ -108,7 +105,10 @@ print(id1)
 #     # Setter method
 #     @name.setter                       # This name will always same to the main property method
 #     def name_change(self, name):
-#         self.__name = name
+#         if isinstance(name,str):
+#             self.__name = name
+#         else:
+#             raise TypeError('Name must be str')
 
 
 #     # Deleter method
@@ -165,4 +165,12 @@ print(id1)
 #NOTE
 # You might use a property decorator if you're implementing a simple data container 
 # class where you want to ensure that certain attributes are always accessed or modified 
-# through getter and setter methods. It is used when attributes are private
+# through getter and setter methods. It is used when attributes are private. 
+# Property decorators has only effect, when user change instance attributes value
+
+
+#NOTE 2
+# for private attributes, using property decorators is a recommended approach, while for simple attributes, 
+# directly assigning them or using setattr in the __init__ method is sufficient. 
+# Descriptor classes can be useful for more advanced attribute handling scenarios but may introduce 
+# complexity that is not always necessary.
