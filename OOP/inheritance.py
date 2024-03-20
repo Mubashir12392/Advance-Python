@@ -214,32 +214,32 @@ Konain = Child('Konain',17,'Female',10)
 # ___________________________________Polymorphism__________________________________
 
 # In Python, polymorphism is a fundamental feature of object-oriented programming (OOP) 
-# that allows objects of different types to be treated as objects of a common superclass. 
+# that allows objects of different derived classes to be treated as objects of a common superclass. 
 # This concept is closely tied to inheritance and method overriding.
 
 # Polymorphism in Python can be achieved through two main mechanisms:
 
 # Method overriding
 
-# class Cars:
-#     def car_colour(self):
-#         print('Black')
+class Cars:
+    def car_colour(self):
+        print('Black')
 
-# class OldCar(Cars):
-#     def car_colour(self):
-#         print('Blue')
+class OldCar(Cars):
+    def car_colour(self):
+        print('Blue')
 
-# class NewCar(Cars):
-#     def car_colour(self):
-#         print('Red')
+class NewCar(Cars):
+    def car_colour(self):
+        print('Red')
 
 # Make objects of derived classes
-# a = OldCar()
-# b = NewCar()
+a = OldCar()
+b = NewCar()
 
 # Objects of derived classes treated(not made) as object of base class,This is called polymorphism
-# animals = [a,b]
+animals = [a,b]
 
-#iterate over the list of animals and calling the method car_colour
-# for animal in animals:
-#     animal.car_colour()
+# iterate over the list of animals and calling the method car_colour
+for animal in animals:
+    animal.car_colour()
